@@ -1,8 +1,7 @@
-# Hello World App (C++)
+# Hello World App (C)
 
 ## build
 ```bash
-cd app/
 mkdir build
 cd build
 cmake ../
@@ -14,5 +13,5 @@ make
 ./main
 ```
 ```
-hello world
+hello
 ```
