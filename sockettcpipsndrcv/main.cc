@@ -74,6 +74,7 @@ void server(const int port_server) {
 
     /***** local Variables *******/
     // For  socket
+    struct sockaddr_in address_address;
     struct sockaddr_in address_client;
     int addrlen_client = sizeof(address_client);
     char rcv_buf[1024] = {0};
@@ -94,12 +95,12 @@ void server(const int port_server) {
     }
 
     // Setting Address
-    address_client.sin_family = AF_INET;
-    address_client.sin_addr.s_addr = INADDR_ANY;
-    address_client.sin_port = htons(port_server);
+    address_address.sin_family = AF_INET;
+    address_address.sin_addr.s_addr = INADDR_ANY;
+    address_address.sin_port = htons(port_server);
 
     // Bind
-    bind(sd_listen, (struct sockaddr *)&address_client, sizeof(address_client));
+    bind(sd_listen, (struct sockaddr *)&address_address, sizeof(address_address));
 
     // Listen
     if (listen(sd_listen, 1) < 0) {
