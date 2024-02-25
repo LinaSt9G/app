@@ -1,4 +1,4 @@
-# BluTCPIP socket communication sample App (C++)
+# TCPIP socket communication sample App (C++)
 
 ## build
 ```bash

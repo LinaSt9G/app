@@ -9,7 +9,7 @@
 #define DEFAULT_IPADDR_CLIENT "127.0.0.1"
 
 void server(const int port_server) {
-
+    struct sockaddr_in address_server;
     struct sockaddr_in address_client;
     int addrlen_client = sizeof(address_client);
     unsigned  char rcv_buf[1024] = {0};   // "unsigned char" is for binary data
@@ -23,12 +23,12 @@ void server(const int port_server) {
     }
 
     // Setting Address
-    address_client.sin_family = AF_INET;
-    address_client.sin_addr.s_addr = INADDR_ANY;
-    address_client.sin_port = htons(port_server);
+    address_server.sin_family = AF_INET;
+    address_server.sin_addr.s_addr = INADDR_ANY;
+    address_server.sin_port = htons(port_server);
 
     // Bind
-    bind(sd_listen, (struct sockaddr *)&address_client, sizeof(address_client));
+    bind(sd_listen, (struct sockaddr *)&address_server, sizeof(address_server));
 
     // Listen
     if (listen(sd_listen, 1) < 0) {
